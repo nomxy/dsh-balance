@@ -1,5 +1,5 @@
 {
-  "name": "dsh-usage-chip",
+  "name": "@nomxy/dsh-balance",
   "version": "0.1.0",
   "description": "Compact DeepSeek balance + peak/off-peak chip in the sidebar name row. · 侧边栏名字旁的 DeepSeek 余额与峰谷小胶囊。",
   "type": "module",

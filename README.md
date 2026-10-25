@@ -1,4 +1,4 @@
-# dsh-usage-chip
+# dsh-balance
 
 DeepSeek Harness 侧边栏余额胶囊：把 **DeepSeek 官方账户余额** 和 **峰谷时段** 做成一个 20px 高的小胶囊，贴在侧栏页脚「名字那一行」的右侧，不占一整块地方。
 
@@ -13,7 +13,7 @@ DeepSeek Harness 侧边栏余额胶囊：把 **DeepSeek 官方账户余额** 和
 ## 安装
 
 ```sh
-dsh plugin --profile <你的 profile> add dsh-usage-chip
+dsh plugin --profile <你的 profile> add @nomxy/dsh-balance
 ```
 
 装完刷新页面或重启 `dsh web` 即生效。要求 DSH `>= 0.2.1`（`dsh.client` + `dsh.bundle` 清单）。
@@ -28,7 +28,7 @@ dsh plugin --profile <你的 profile> add dsh-usage-chip
 ## 隐私与安全
 
 - 插件只做两件事：读凭证、请求官方余额接口。不收集、不上报，没有遥测。
-- 宿主半只注册两条本机路由（`/api/dsh-usage-chip`、`/api/dsh-usage-chip/holidays`），且只接受 `Host` 为回环地址或本监听地址的请求（与 DSH 自身 `/api` 栅栏同一口径）；跨站标记与异源 `Origin` 一律拒绝。
+- 宿主半只注册两条本机路由（`/api/dsh-balance`、`/api/dsh-balance/holidays`），且只接受 `Host` 为回环地址或本监听地址的请求（与 DSH 自身 `/api` 栅栏同一口径）；跨站标记与异源 `Origin` 一律拒绝。
 - 上游错误原文不会透出到界面（上游异常消息里可能带凭据片段）。
 
 ## 已知限制
@@ -51,4 +51,4 @@ MIT，见 [LICENSE](./LICENSE)（包含上游 MIT 声明）。
 
 ## English
 
-A 20px balance chip for the DeepSeek Harness sidebar footer, sitting right of the name row: official DeepSeek balance plus the current peak/off-peak window with a countdown to the next switch, hover for the active model's unit prices, click to refresh. No telemetry; the host half only serves two loopback-only routes. Install with `dsh plugin --profile <profile> add dsh-usage-chip`. Host half derived from `@dougen/dsh-deepseek-usage` (MIT).
+A 20px balance chip for the DeepSeek Harness sidebar footer, sitting right of the name row: official DeepSeek balance plus the current peak/off-peak window with a countdown to the next switch, hover for the active model's unit prices, click to refresh. No telemetry; the host half only serves two loopback-only routes. Install with `dsh plugin --profile <profile> add @nomxy/dsh-balance`. Host half derived from `@dougen/dsh-deepseek-usage` (MIT).

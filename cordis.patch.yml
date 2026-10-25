@@ -1,5 +1,5 @@
-# dsh-usage-chip — 本地插件：侧栏名字行里的 DeepSeek 余额胶囊。
-# Host 半注册 GET /api/dsh-usage-chip（含 /holidays）；Client 半不占槽位，直接把胶囊挂进 triggerRow。
+# dsh-balance — 本地插件：侧栏名字行里的 DeepSeek 余额胶囊。
+# Host 半注册 GET /api/dsh-balance（含 /holidays）；Client 半不占槽位，直接把胶囊挂进 triggerRow。
 - insert:
-    - id: usage-chip
-      name: 'dsh-usage-chip'
+    - id: balance-chip
+      name: '@nomxy/dsh-balance'

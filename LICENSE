@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 siyin (dsh-usage-chip)
+Copyright (c) 2026 siyin (dsh-balance)
 
 The host half of this package — `lib/index.js` and `lib/pricing.js` — is derived
 from `@dougen/dsh-deepseek-usage` (https://github.com/dougen/dsh-deepseek-usage),
