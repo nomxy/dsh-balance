@@ -4,7 +4,7 @@ DeepSeek Harness 侧边栏余额胶囊：把 **DeepSeek 官方账户余额** 和
 
 `¥56.10 · 谷 1d9h`
 
-![dsh-balance 胶囊外观：浅色/深色主题下的 谷、峰、出错 三种状态](docs/chip.png)
+![dsh-balance chip](https://cdn.jsdelivr.net/gh/nomxy/dsh-balance@main/docs/chip.png)
 
 <sub>图中为按 `lib/client.js` 的样式渲染的外观预览（同一份 CSS，脱离 DSH 页面单独成像）；实际位置在侧栏名字按钮右侧、连接指示灯左侧。</sub>
 
@@ -16,10 +16,10 @@ DeepSeek Harness 侧边栏余额胶囊：把 **DeepSeek 官方账户余额** 和
 
 ## 安装
 
-从 npm 装（当前版本 `0.1.1`）：
+从 npm 装（当前版本 `0.1.2`）：
 
 ```sh
-dsh plugin --profile <你的 profile> add @nomxy/dsh-balance@0.1.1
+dsh plugin --profile <你的 profile> add @nomxy/dsh-balance@0.1.2
 ```
 
 装完刷新页面或重启 DSH 即生效。要求 DSH `>= 0.2.1`（需要 `dsh.client` + `dsh.bundle` 清单）。
@@ -100,14 +100,14 @@ MIT，见 [LICENSE](./LICENSE)（包含上游 MIT 声明）。
 
 A 20px balance chip for the DeepSeek Harness sidebar footer, sitting right of the name row: official DeepSeek balance plus the current peak/off-peak window with a countdown to the next switch, hover for the active model's unit prices, click to refresh. No telemetry; the host half only serves two loopback-only routes.
 
-![chip preview](docs/chip.png)
+![chip preview](https://cdn.jsdelivr.net/gh/nomxy/dsh-balance@main/docs/chip.png)
 
 **Peak/off-peak (official DeepSeek billing rules):** peak = Beijing time 09:00–12:00 and 14:00–18:00 on weekdays only; everything else — weekends (even make-up workdays), Chinese public holidays, and the 12:00–14:00 lunch gap — is off-peak/idle. The countdown shows the time until the next switch (e.g. `2d15h` from Friday 18:00 to Monday 09:00).
 
 **Install:**
 
 ```sh
-dsh plugin --profile <your-profile> add @nomxy/dsh-balance@0.1.1
+dsh plugin --profile <your-profile> add @nomxy/dsh-balance@0.1.2
 ```
 
 Requires DSH `>= 0.2.1` (`dsh.client` + `dsh.bundle` present). Verify with `curl -s http://127.0.0.1:<port>/api/dsh-balance`.
