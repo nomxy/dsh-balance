@@ -16,10 +16,10 @@ DeepSeek Harness 侧边栏余额胶囊：把 **DeepSeek 官方账户余额** 和
 
 ## 安装
 
-从 npm 装（当前版本 `0.1.0`）：
+从 npm 装（当前版本 `0.1.1`）：
 
 ```sh
-dsh plugin --profile <你的 profile> add @nomxy/dsh-balance@0.1.0
+dsh plugin --profile <你的 profile> add @nomxy/dsh-balance@0.1.1
 ```
 
 装完刷新页面或重启 DSH 即生效。要求 DSH `>= 0.2.1`（需要 `dsh.client` + `dsh.bundle` 清单）。
@@ -107,7 +107,7 @@ A 20px balance chip for the DeepSeek Harness sidebar footer, sitting right of th
 **Install:**
 
 ```sh
-dsh plugin --profile <your-profile> add @nomxy/dsh-balance@0.1.0
+dsh plugin --profile <your-profile> add @nomxy/dsh-balance@0.1.1
 ```
 
 Requires DSH `>= 0.2.1` (`dsh.client` + `dsh.bundle` present). Verify with `curl -s http://127.0.0.1:<port>/api/dsh-balance`.
