@@ -1,0 +1,43 @@
+{
+  "name": "dsh-usage-chip",
+  "version": "0.1.0",
+  "description": "Compact DeepSeek balance + peak/off-peak chip in the sidebar name row. · 侧边栏名字旁的 DeepSeek 余额与峰谷小胶囊。",
+  "type": "module",
+  "license": "MIT",
+  "icon": "icon.svg",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "icon.svg"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "usage",
+    "balance",
+    "billing",
+    "sidebar",
+    "ui"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}
