@@ -16,10 +16,10 @@ DeepSeek Harness 侧边栏余额胶囊：把 **DeepSeek 官方账户余额** 和
 
 ## 安装
 
-从 npm 装（当前版本 `0.1.2`）：
+从 npm 装（当前版本 `0.1.3`）：
 
 ```sh
-dsh plugin --profile <你的 profile> add @nomxy/dsh-balance@0.1.2
+dsh plugin --profile <你的 profile> add @nomxy/dsh-balance@0.1.3
 ```
 
 装完刷新页面或重启 DSH 即生效。要求 DSH `>= 0.2.1`（需要 `dsh.client` + `dsh.bundle` 清单）。
@@ -62,6 +62,18 @@ curl -s http://127.0.0.1:<port>/api/dsh-balance
 | 价格 | 悬停提示的单价按当前所处的峰谷档取（元 / 百万 tokens），缓存写官方暂不计费（0） |
 
 两种颜色：**峰**=`#d97706`（橙）、**谷**=`#15803d`（绿）；模型不在内置价格表里（例如第三方网关上的同名模型）时，胶囊只显示余额，不显示峰谷。
+
+## 右键设置
+
+右键点胶囊会弹出设置菜单，三组选项，点一下立即生效并记住（存在浏览器 `localStorage` 的 `dsh-balance:prefs`，字段为 `size` / `position` / `form`）：
+
+| 组 | 可选值 | 说明 |
+|---|---|---|
+| 大小 | 小 / 标准 / 大 | 高度 18 / 20 / 24px，字号 10.5 / 11.5 / 13px |
+| 位置 | 名字右侧（默认）/ 名字左侧 / 行末 | 胶囊在名字行里的插入位置 |
+| 形式 | 胶囊（默认）/ 纯文字 / 圆点 / 仅金额 | 纯文字去掉边框与底色；圆点把「峰 / 谷」换成同色圆点；仅金额只留 `¥余额`，倒计时收进悬停提示 |
+
+键盘等价入口：Tab 聚焦胶囊后按 `Shift+F10` 或菜单键 → 方向键选择 → Enter 确认；`Esc` 或点菜单外关闭。侧栏折叠成 36px 图标栏时胶囊照旧隐藏。
 
 ## 配置
 
@@ -107,7 +119,7 @@ A 20px balance chip for the DeepSeek Harness sidebar footer, sitting right of th
 **Install:**
 
 ```sh
-dsh plugin --profile <your-profile> add @nomxy/dsh-balance@0.1.2
+dsh plugin --profile <your-profile> add @nomxy/dsh-balance@0.1.3
 ```
 
 Requires DSH `>= 0.2.1` (`dsh.client` + `dsh.bundle` present). Verify with `curl -s http://127.0.0.1:<port>/api/dsh-balance`.
