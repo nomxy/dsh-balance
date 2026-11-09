@@ -8,11 +8,11 @@ DeepSeek Harness 侧边栏余额胶囊：把 **DeepSeek 官方账户余额** 和
 
 <sub>图中为按 `lib/client.js` 的样式渲染的外观预览（同一份 CSS，脱离 DSH 页面单独成像）；实际位置在侧栏名字按钮右侧、连接指示灯左侧。</sub>
 
-- **余额**：来自 DeepSeek 官方 `GET /user/balance`，用 DSH 凭证服务里的 `DEEPSEEK_API_KEY`（不出本机）。
+- **余额**：优先用 DSH 凭证服务里的 `DEEPSEEK_API_KEY` 请求官方 `GET /user/balance`（不出本机）；没配 Key 时自动改用 DSH 的账号登录态（`deepseekAccount` 服务 → `get_user_summary`），账号余额照常显示，不需要额外配置。
 - **峰谷**：官方高峰/空闲时段实时判断，橙色「峰」/ 绿色「谷」，后面跟距下次切换的倒计时（`2d15h` / `5h47m` / `23m`），每 15 秒刷新。
 - **当前档位单价**：鼠标悬停显示输入 / 输入缓存 / 输出单价（元 / 百万 tokens），以及余额是否可用。
 - **交互**：点击立即刷新；后台每 30 秒心跳一次；侧栏折叠成 36px 图标栏时自动隐藏，展开即回来。
-- **失败可见**：未配置 Key、余额接口超时或返回异常时胶囊显示 `—`，悬停能看到原因，不会编数字。
+- **失败可见**：两条路径都拿不到余额、接口超时或返回异常时胶囊显示 `—`，悬停能看到原因，不会编数字。
 
 ## 安装
 
@@ -77,14 +77,14 @@ curl -s http://127.0.0.1:<port>/api/dsh-balance
 
 ## 配置
 
-无需配置。余额需要 DSH 里已经配好 DeepSeek 的 API Key：
+无需配置。余额按下面顺序取，能拿到哪一个就用哪一个：
 
-- 凭证引用：`DEEPSEEK_API_KEY`（与 `llm-deepseek` 同一引用）；
-- 想换网关地址时可用环境变量 `DEEPSEEK_BASE_URL`（注意：指向第三方网关时 API Key 会发给该地址）。
+1. **API Key**（可选）：DSH 凭证引用 `DEEPSEEK_API_KEY`（与 `llm-deepseek` 同一引用），请求官方 `GET /user/balance`；想换网关地址时可用环境变量 `DEEPSEEK_BASE_URL`（注意：指向第三方网关时 API Key 会发给该地址）。
+2. **账号登录态**（默认）：没配 Key 或 Key 不可用时，插件读 DSH 已登录的 DeepSeek 账号余额（宿主 `deepseekAccount` 服务的 `get_user_summary`），只取正常钱包、不含赠送额度；未登录时胶囊回到 `—` 并在悬停里说明原因。
 
 ## 隐私与安全
 
-- 插件只做两件事：读凭证、请求官方余额接口。不收集、不上报，没有遥测。
+- 插件只做两件事：读凭证或账号登录态、请求官方余额接口。不收集、不上报，没有遥测。
 - 宿主半只注册两条本机路由（`/api/dsh-balance`、`/api/dsh-balance/holidays`），且只接受 `Host` 为回环地址或本监听地址的请求（与 DSH 自身 `/api` 栅栏同一口径）；跨站标记与异源 `Origin` 一律拒绝。
 - 上游错误原文不会透出到界面（上游异常消息里可能带凭据片段）。
 
